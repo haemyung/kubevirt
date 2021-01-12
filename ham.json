@@ -1,17 +1,16 @@
 {  
-  "components": {
-    "schemas": {
-      "k8s.io.api.core.v1.Affinity": {
+  "definitions": {
+    "k8s.io.api.core.v1.Affinity": {
         "type": "object",
         "properties": {
           "nodeAffinity": {
-            "$ref": "#/components/schemas/k8s.io.api.core.v1.NodeAffinity"
+            "$ref": "#/definitions/k8s.io.api.core.v1.NodeAffinity"
           },
           "podAffinity": {
-            "$ref": "#/components/schemas/k8s.io.api.core.v1.PodAffinity"
+            "$ref": "#/definitions/k8s.io.api.core.v1.PodAffinity"
           },
           "podAntiAffinity": {
-            "$ref": "#/components/schemas/k8s.io.api.core.v1.PodAntiAffinity"
+            "$ref": "#/definitions/k8s.io.api.core.v1.PodAntiAffinity"
           }
         },
         "description": "Affinity is a group of affinity scheduling rules."
@@ -27,7 +26,7 @@
             "type": "array",
             "description": "Custom headers to set in the request. HTTP allows repeated headers.",
             "items": {
-              "$ref": "#/components/schemas/k8s.io.api.core.v1.HTTPHeader"
+              "$ref": "#/definitions/k8s.io.api.core.v1.HTTPHeader"
             }
           },
           "path": {
@@ -76,11 +75,11 @@
             "type": "array",
             "description": "The scheduler will prefer to schedule pods to nodes that satisfy the affinity expressions specified by this field, but it may choose a node that violates one or more of the expressions. The node that is most preferred is the one with the greatest sum of weights, i.e. for each node that meets all of the scheduling requirements (resource request, requiredDuringScheduling affinity expressions, etc.), compute a sum by iterating through the elements of this field and adding \"weight\" to the sum if the node matches the corresponding matchExpressions; the node(s) with the highest sum are the most preferred.",
             "items": {
-              "$ref": "#/components/schemas/k8s.io.api.core.v1.PreferredSchedulingTerm"
+              "$ref": "#/definitions/k8s.io.api.core.v1.PreferredSchedulingTerm"
             }
           },
           "requiredDuringSchedulingIgnoredDuringExecution": {
-            "$ref": "#/components/schemas/k8s.io.api.core.v1.NodeSelector"
+            "$ref": "#/definitions/k8s.io.api.core.v1.NodeSelector"
           }
         },
         "description": "Node affinity is a group of node affinity scheduling rules."
@@ -95,7 +94,7 @@
             "type": "array",
             "description": "Required. A list of node selector terms. The terms are ORed.",
             "items": {
-              "$ref": "#/components/schemas/k8s.io.api.core.v1.NodeSelectorTerm"
+              "$ref": "#/definitions/k8s.io.api.core.v1.NodeSelectorTerm"
             }
           }
         },
@@ -133,14 +132,14 @@
             "type": "array",
             "description": "A list of node selector requirements by node's labels.",
             "items": {
-              "$ref": "#/components/schemas/k8s.io.api.core.v1.NodeSelectorRequirement"
+              "$ref": "#/definitions/k8s.io.api.core.v1.NodeSelectorRequirement"
             }
           },
           "matchFields": {
             "type": "array",
             "description": "A list of node selector requirements by node's fields.",
             "items": {
-              "$ref": "#/components/schemas/k8s.io.api.core.v1.NodeSelectorRequirement"
+              "$ref": "#/definitions/k8s.io.api.core.v1.NodeSelectorRequirement"
             }
           }
         },
@@ -158,13 +157,13 @@
             "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds"
           },
           "metadata": {
-            "$ref": "#/components/schemas/k8s.io.apimachinery.pkg.apis.meta.v1.ObjectMeta"
+            "$ref": "#/definitions/k8s.io.apimachinery.pkg.apis.meta.v1.ObjectMeta"
           },
           "spec": {
-            "$ref": "#/components/schemas/k8s.io.api.core.v1.PersistentVolumeClaimSpec"
+            "$ref": "#/definitions/k8s.io.api.core.v1.PersistentVolumeClaimSpec"
           },
           "status": {
-            "$ref": "#/components/schemas/k8s.io.api.core.v1.PersistentVolumeClaimStatus"
+            "$ref": "#/definitions/k8s.io.api.core.v1.PersistentVolumeClaimStatus"
           }
         },
         "description": "PersistentVolumeClaim is a user's request for and claim to a persistent volume"
@@ -204,13 +203,13 @@
             }
           },
           "dataSource": {
-            "$ref": "#/components/schemas/k8s.io.api.core.v1.TypedLocalObjectReference"
+            "$ref": "#/definitions/k8s.io.api.core.v1.TypedLocalObjectReference"
           },
           "resources": {
-            "$ref": "#/components/schemas/k8s.io.api.core.v1.ResourceRequirements"
+            "$ref": "#/definitions/k8s.io.api.core.v1.ResourceRequirements"
           },
           "selector": {
-            "$ref": "#/components/schemas/k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector"
+            "$ref": "#/definitions/k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector"
           },
           "storageClassName": {
             "type": "string",
@@ -240,7 +239,7 @@
           "capacity": {
             "type": "object",
             "additionalProperties": {
-              "$ref": "#/components/schemas/k8s.io.apimachinery.pkg.api.resource.Quantity"
+              "$ref": "#/definitions/k8s.io.apimachinery.pkg.api.resource.Quantity"
             },
             "description": "Represents the actual resources of the underlying volume."
           },
@@ -248,7 +247,7 @@
             "type": "array",
             "description": "Current Condition of persistent volume claim. If underlying persistent volume is being resized then the Condition will be set to 'ResizeStarted'.",
             "items": {
-              "$ref": "#/components/schemas/k8s.io.api.core.v1.PersistentVolumeClaimCondition"
+              "$ref": "#/definitions/k8s.io.api.core.v1.PersistentVolumeClaimCondition"
             },
             "x-kubernetes-patch-strategy": "merge",
             "x-kubernetes-patch-merge-key": "type"
@@ -284,14 +283,14 @@
             "type": "array",
             "description": "The scheduler will prefer to schedule pods to nodes that satisfy the affinity expressions specified by this field, but it may choose a node that violates one or more of the expressions. The node that is most preferred is the one with the greatest sum of weights, i.e. for each node that meets all of the scheduling requirements (resource request, requiredDuringScheduling affinity expressions, etc.), compute a sum by iterating through the elements of this field and adding \"weight\" to the sum if the node has pods which matches the corresponding podAffinityTerm; the node(s) with the highest sum are the most preferred.",
             "items": {
-              "$ref": "#/components/schemas/k8s.io.api.core.v1.WeightedPodAffinityTerm"
+              "$ref": "#/definitions/k8s.io.api.core.v1.WeightedPodAffinityTerm"
             }
           },
           "requiredDuringSchedulingIgnoredDuringExecution": {
             "type": "array",
             "description": "If the affinity requirements specified by this field are not met at scheduling time, the pod will not be scheduled onto the node. If the affinity requirements specified by this field cease to be met at some point during pod execution (e.g. due to a pod label update), the system may or may not try to eventually evict the pod from its node. When there are multiple elements, the lists of nodes corresponding to each podAffinityTerm are intersected, i.e. all terms must be satisfied.",
             "items": {
-              "$ref": "#/components/schemas/k8s.io.api.core.v1.PodAffinityTerm"
+              "$ref": "#/definitions/k8s.io.api.core.v1.PodAffinityTerm"
             }
           }
         },
@@ -304,7 +303,7 @@
         "type": "object",
         "properties": {
           "labelSelector": {
-            "$ref": "#/components/schemas/k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector"
+            "$ref": "#/definitions/k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector"
           },
           "namespaces": {
             "type": "array",
@@ -327,14 +326,14 @@
             "type": "array",
             "description": "The scheduler will prefer to schedule pods to nodes that satisfy the anti-affinity expressions specified by this field, but it may choose a node that violates one or more of the expressions. The node that is most preferred is the one with the greatest sum of weights, i.e. for each node that meets all of the scheduling requirements (resource request, requiredDuringScheduling anti-affinity expressions, etc.), compute a sum by iterating through the elements of this field and adding \"weight\" to the sum if the node has pods which matches the corresponding podAffinityTerm; the node(s) with the highest sum are the most preferred.",
             "items": {
-              "$ref": "#/components/schemas/k8s.io.api.core.v1.WeightedPodAffinityTerm"
+              "$ref": "#/definitions/k8s.io.api.core.v1.WeightedPodAffinityTerm"
             }
           },
           "requiredDuringSchedulingIgnoredDuringExecution": {
             "type": "array",
             "description": "If the anti-affinity requirements specified by this field are not met at scheduling time, the pod will not be scheduled onto the node. If the anti-affinity requirements specified by this field cease to be met at some point during pod execution (e.g. due to a pod label update), the system may or may not try to eventually evict the pod from its node. When there are multiple elements, the lists of nodes corresponding to each podAffinityTerm are intersected, i.e. all terms must be satisfied.",
             "items": {
-              "$ref": "#/components/schemas/k8s.io.api.core.v1.PodAffinityTerm"
+              "$ref": "#/definitions/k8s.io.api.core.v1.PodAffinityTerm"
             }
           }
         },
@@ -354,7 +353,7 @@
             "type": "array",
             "description": "A list of DNS resolver options. This will be merged with the base options generated from DNSPolicy. Duplicated entries will be removed. Resolution options given in Options will override those that appear in the base DNSPolicy.",
             "items": {
-              "$ref": "#/components/schemas/k8s.io.api.core.v1.PodDNSConfigOption"
+              "$ref": "#/definitions/k8s.io.api.core.v1.PodDNSConfigOption"
             }
           },
           "searches": {
@@ -388,7 +387,7 @@
         "type": "object",
         "properties": {
           "preference": {
-            "$ref": "#/components/schemas/k8s.io.api.core.v1.NodeSelectorTerm"
+            "$ref": "#/definitions/k8s.io.api.core.v1.NodeSelectorTerm"
           },
           "weight": {
             "type": "integer",
@@ -404,14 +403,14 @@
           "limits": {
             "type": "object",
             "additionalProperties": {
-              "$ref": "#/components/schemas/k8s.io.apimachinery.pkg.api.resource.Quantity"
+              "$ref": "#/definitions/k8s.io.apimachinery.pkg.api.resource.Quantity"
             },
             "description": "Limits describes the maximum amount of compute resources allowed. More info: https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/"
           },
           "requests": {
             "type": "object",
             "additionalProperties": {
-              "$ref": "#/components/schemas/k8s.io.apimachinery.pkg.api.resource.Quantity"
+              "$ref": "#/definitions/k8s.io.apimachinery.pkg.api.resource.Quantity"
             },
             "description": "Requests describes the minimum amount of compute resources required. If Requests is omitted for a container, it defaults to Limits if that is explicitly specified, otherwise to an implementation-defined value. More info: https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/"
           }
@@ -485,7 +484,7 @@
         "type": "object",
         "properties": {
           "podAffinityTerm": {
-            "$ref": "#/components/schemas/k8s.io.api.core.v1.PodAffinityTerm"
+            "$ref": "#/definitions/k8s.io.api.core.v1.PodAffinityTerm"
           },
           "weight": {
             "type": "integer",
@@ -519,20 +518,20 @@
             "description": "name is the name of the group."
           },
           "preferredVersion": {
-            "$ref": "#/components/schemas/k8s.io.apimachinery.pkg.apis.meta.v1.GroupVersionForDiscovery"
+            "$ref": "#/definitions/k8s.io.apimachinery.pkg.apis.meta.v1.GroupVersionForDiscovery"
           },
           "serverAddressByClientCIDRs": {
             "type": "array",
             "description": "a map of client CIDR to server address that is serving this group. This is to help clients reach servers in the most network-efficient way possible. Clients can use the appropriate server address as per the CIDR that they match. In case of multiple matches, clients should use the longest matching CIDR. The server returns only those CIDRs that it thinks that the client can match. For example: the master will return an internal IP CIDR only, if the client reaches the server using an internal IP. Server looks at X-Forwarded-For header or X-Real-Ip header or request.RemoteAddr (in that order) to get the client IP.",
             "items": {
-              "$ref": "#/components/schemas/k8s.io.apimachinery.pkg.apis.meta.v1.ServerAddressByClientCIDR"
+              "$ref": "#/definitions/k8s.io.apimachinery.pkg.apis.meta.v1.ServerAddressByClientCIDR"
             }
           },
           "versions": {
             "type": "array",
             "description": "versions are the versions supported in this group.",
             "items": {
-              "$ref": "#/components/schemas/k8s.io.apimachinery.pkg.apis.meta.v1.GroupVersionForDiscovery"
+              "$ref": "#/definitions/k8s.io.apimachinery.pkg.apis.meta.v1.GroupVersionForDiscovery"
             }
           }
         },
@@ -552,7 +551,7 @@
             "type": "array",
             "description": "groups is a list of APIGroup.",
             "items": {
-              "$ref": "#/components/schemas/k8s.io.apimachinery.pkg.apis.meta.v1.APIGroup"
+              "$ref": "#/definitions/k8s.io.apimachinery.pkg.apis.meta.v1.APIGroup"
             }
           },
           "kind": {
@@ -647,7 +646,7 @@
             "type": "array",
             "description": "resources contains the name of the resources and if they are namespaced.",
             "items": {
-              "$ref": "#/components/schemas/k8s.io.apimachinery.pkg.apis.meta.v1.APIResource"
+              "$ref": "#/definitions/k8s.io.apimachinery.pkg.apis.meta.v1.APIResource"
             }
           }
         },
@@ -681,7 +680,7 @@
             "description": "Deprecated: please use the PropagationPolicy, this field will be deprecated in 1.7. Should the dependent objects be orphaned. If true/false, the \"orphan\" finalizer will be added to/removed from the object's finalizers list. Either this field or PropagationPolicy may be set, but not both."
           },
           "preconditions": {
-            "$ref": "#/components/schemas/k8s.io.apimachinery.pkg.apis.meta.v1.Preconditions"
+            "$ref": "#/definitions/k8s.io.apimachinery.pkg.apis.meta.v1.Preconditions"
           },
           "propagationPolicy": {
             "type": "string",
@@ -723,7 +722,7 @@
             "type": "array",
             "description": "matchExpressions is a list of label selector requirements. The requirements are ANDed.",
             "items": {
-              "$ref": "#/components/schemas/k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelectorRequirement"
+              "$ref": "#/definitions/k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelectorRequirement"
             }
           },
           "matchLabels": {
@@ -798,7 +797,7 @@
             "description": "FieldsType is the discriminator for the different fields format and version. There is currently only one possible value: \"FieldsV1\""
           },
           "fieldsV1": {
-            "$ref": "#/components/schemas/k8s.io.apimachinery.pkg.apis.meta.v1.FieldsV1"
+            "$ref": "#/definitions/k8s.io.apimachinery.pkg.apis.meta.v1.FieldsV1"
           },
           "manager": {
             "type": "string",
@@ -809,7 +808,7 @@
             "description": "Operation is the type of operation which lead to this ManagedFieldsEntry being created. The only valid values for this field are 'Apply' and 'Update'."
           },
           "time": {
-            "$ref": "#/components/schemas/k8s.io.apimachinery.pkg.apis.meta.v1.Time"
+            "$ref": "#/definitions/k8s.io.apimachinery.pkg.apis.meta.v1.Time"
           }
         },
         "description": "ManagedFieldsEntry is a workflow-id, a FieldSet and the group version of the resource that the fieldset applies to."
@@ -834,7 +833,7 @@
             "format": "int64"
           },
           "deletionTimestamp": {
-            "$ref": "#/components/schemas/k8s.io.apimachinery.pkg.apis.meta.v1.Time"
+            "$ref": "#/definitions/k8s.io.apimachinery.pkg.apis.meta.v1.Time"
           },
           "finalizers": {
             "type": "array",
@@ -864,7 +863,7 @@
             "type": "array",
             "description": "ManagedFields maps workflow-id and version to the set of fields that are managed by that workflow. This is mostly for internal housekeeping, and users typically shouldn't need to set or understand this field. A workflow can be the user's name, a controller's name, or the name of a specific apply path like \"ci-cd\". The set of fields is always in the version that the workflow used when modifying the object.",
             "items": {
-              "$ref": "#/components/schemas/k8s.io.apimachinery.pkg.apis.meta.v1.ManagedFieldsEntry"
+              "$ref": "#/definitions/k8s.io.apimachinery.pkg.apis.meta.v1.ManagedFieldsEntry"
             }
           },
           "name": {
@@ -879,7 +878,7 @@
             "type": "array",
             "description": "List of objects depended by this object. If ALL objects in the list have been deleted, this object will be garbage collected. If this object is managed by a controller, then an entry in this list will point to this controller, with the controller field set to true. There cannot be more than one managing controller.",
             "items": {
-              "$ref": "#/components/schemas/k8s.io.apimachinery.pkg.apis.meta.v1.OwnerReference"
+              "$ref": "#/definitions/k8s.io.apimachinery.pkg.apis.meta.v1.OwnerReference"
             },
             "x-kubernetes-patch-strategy": "merge",
             "x-kubernetes-patch-merge-key": "uid"
@@ -1000,7 +999,7 @@
             "format": "int32"
           },
           "details": {
-            "$ref": "#/components/schemas/k8s.io.apimachinery.pkg.apis.meta.v1.StatusDetails"
+            "$ref": "#/definitions/k8s.io.apimachinery.pkg.apis.meta.v1.StatusDetails"
           },
           "kind": {
             "type": "string",
@@ -1011,7 +1010,7 @@
             "description": "A human-readable description of the status of this operation."
           },
           "metadata": {
-            "$ref": "#/components/schemas/k8s.io.apimachinery.pkg.apis.meta.v1.ListMeta"
+            "$ref": "#/definitions/k8s.io.apimachinery.pkg.apis.meta.v1.ListMeta"
           },
           "reason": {
             "type": "string",
@@ -1049,7 +1048,7 @@
             "type": "array",
             "description": "The Causes array includes more details associated with the StatusReason failure. Not all StatusReasons may provide detailed causes.",
             "items": {
-              "$ref": "#/components/schemas/k8s.io.apimachinery.pkg.apis.meta.v1.StatusCause"
+              "$ref": "#/definitions/k8s.io.apimachinery.pkg.apis.meta.v1.StatusCause"
             }
           },
           "group": {
@@ -1089,7 +1088,7 @@
         "type": "object",
         "properties": {
           "object": {
-            "$ref": "#/components/schemas/k8s.io.apimachinery.pkg.runtime.RawExtension"
+            "$ref": "#/definitions/k8s.io.apimachinery.pkg.runtime.RawExtension"
           },
           "type": {
             "type": "string"
@@ -1120,10 +1119,10 @@
         "type": "object",
         "properties": {
           "bios": {
-            "$ref": "#/components/schemas/v1.BIOS"
+            "$ref": "#/definitions/v1.BIOS"
           },
           "efi": {
-            "$ref": "#/components/schemas/v1.EFI"
+            "$ref": "#/definitions/v1.EFI"
           }
         },
         "description": "Represents the firmware blob used to assist in the domain creation process. Used for setting the QEMU BIOS file path for the libvirt domain."
@@ -1161,7 +1160,7 @@
             "type": "array",
             "description": "Features specifies the CPU features list inside the VMI.",
             "items": {
-              "$ref": "#/components/schemas/v1.CPUFeature"
+              "$ref": "#/definitions/v1.CPUFeature"
             }
           },
           "isolateEmulatorThread": {
@@ -1227,14 +1226,14 @@
         "type": "object",
         "properties": {
           "timer": {
-            "$ref": "#/components/schemas/v1.Timer"
+            "$ref": "#/definitions/v1.Timer"
           },
           "timezone": {
             "type": "string",
             "description": "Timezone sets the guest clock to the specified timezone. Zone name follows the TZ environment variable format (e.g. 'America/New_York')."
           },
           "utc": {
-            "$ref": "#/components/schemas/v1.ClockOffsetUTC"
+            "$ref": "#/definitions/v1.ClockOffsetUTC"
           }
         },
         "description": "Represents the clock and timers of a vmi."
@@ -1262,10 +1261,10 @@
             "description": "NetworkDataBase64 contains config drive cloud-init networkdata as a base64 encoded string."
           },
           "networkDataSecretRef": {
-            "$ref": "#/components/schemas/k8s.io.api.core.v1.LocalObjectReference"
+            "$ref": "#/definitions/k8s.io.api.core.v1.LocalObjectReference"
           },
           "secretRef": {
-            "$ref": "#/components/schemas/k8s.io.api.core.v1.LocalObjectReference"
+            "$ref": "#/definitions/k8s.io.api.core.v1.LocalObjectReference"
           },
           "userData": {
             "type": "string",
@@ -1290,10 +1289,10 @@
             "description": "NetworkDataBase64 contains NoCloud cloud-init networkdata as a base64 encoded string."
           },
           "networkDataSecretRef": {
-            "$ref": "#/components/schemas/k8s.io.api.core.v1.LocalObjectReference"
+            "$ref": "#/definitions/k8s.io.api.core.v1.LocalObjectReference"
           },
           "secretRef": {
-            "$ref": "#/components/schemas/k8s.io.api.core.v1.LocalObjectReference"
+            "$ref": "#/definitions/k8s.io.api.core.v1.LocalObjectReference"
           },
           "userData": {
             "type": "string",
@@ -1310,7 +1309,7 @@
         "type": "object",
         "properties": {
           "nodePlacement": {
-            "$ref": "#/components/schemas/v1.NodePlacement"
+            "$ref": "#/definitions/v1.NodePlacement"
           }
         }
       },
@@ -1357,19 +1356,19 @@
         },
         "description": "Represents a docker image with an embedded disk."
       },
-      "v1.CustomizeComponents": {
+      "v1.Customizedefinitions": {
         "type": "object",
         "properties": {
           "patches": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/v1.CustomizeComponentsPatch"
+              "$ref": "#/definitions/v1.CustomizedefinitionsPatch"
             },
             "x-kubernetes-list-type": "atomic"
           }
         }
       },
-      "v1.CustomizeComponentsPatch": {
+      "v1.CustomizedefinitionsPatch": {
         "type": "object",
         "properties": {
           "patch": {
@@ -1404,7 +1403,7 @@
             "type": "array",
             "description": "If specified will pass extra DHCP options for private use, range: 224-254",
             "items": {
-              "$ref": "#/components/schemas/v1.DHCPPrivateOptions"
+              "$ref": "#/definitions/v1.DHCPPrivateOptions"
             }
           },
           "tftpServerName": {
@@ -1463,13 +1462,13 @@
             "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds"
           },
           "metadata": {
-            "$ref": "#/components/schemas/k8s.io.apimachinery.pkg.apis.meta.v1.ObjectMeta"
+            "$ref": "#/definitions/k8s.io.apimachinery.pkg.apis.meta.v1.ObjectMeta"
           },
           "spec": {
-            "$ref": "#/components/schemas/v1alpha1.DataVolumeSpec"
+            "$ref": "#/definitions/v1alpha1.DataVolumeSpec"
           },
           "status": {
-            "$ref": "#/components/schemas/v1.DataVolumeTemplateDummyStatus"
+            "$ref": "#/definitions/v1.DataVolumeTemplateDummyStatus"
           }
         }
       },
@@ -1533,14 +1532,14 @@
             "type": "array",
             "description": "Disks describes disks, cdroms, floppy and luns which are connected to the vmi.",
             "items": {
-              "$ref": "#/components/schemas/v1.Disk"
+              "$ref": "#/definitions/v1.Disk"
             }
           },
           "filesystems": {
             "type": "array",
             "description": "Filesystems describes filesystem which is connected to the vmi.",
             "items": {
-              "$ref": "#/components/schemas/v1.Filesystem"
+              "$ref": "#/definitions/v1.Filesystem"
             },
             "x-kubernetes-list-type": "set"
           },
@@ -1548,21 +1547,21 @@
             "type": "array",
             "description": "Whether to attach a GPU device to the vmi.",
             "items": {
-              "$ref": "#/components/schemas/v1.GPU"
+              "$ref": "#/definitions/v1.GPU"
             }
           },
           "inputs": {
             "type": "array",
             "description": "Inputs describe input devices",
             "items": {
-              "$ref": "#/components/schemas/v1.Input"
+              "$ref": "#/definitions/v1.Input"
             }
           },
           "interfaces": {
             "type": "array",
             "description": "Interfaces describe network interfaces which are added to the vmi.",
             "items": {
-              "$ref": "#/components/schemas/v1.Interface"
+              "$ref": "#/definitions/v1.Interface"
             }
           },
           "networkInterfaceMultiqueue": {
@@ -1570,10 +1569,10 @@
             "description": "If specified, virtual network interfaces configured with a virtio bus will also enable the vhost multiqueue feature for network devices. The number of queues created depends on additional factors of the VirtualMachineInstance, like the number of guest CPUs."
           },
           "rng": {
-            "$ref": "#/components/schemas/v1.Rng"
+            "$ref": "#/definitions/v1.Rng"
           },
           "watchdog": {
-            "$ref": "#/components/schemas/v1.Watchdog"
+            "$ref": "#/definitions/v1.Watchdog"
           }
         }
       },
@@ -1593,24 +1592,24 @@
             "description": "Cache specifies which kvm disk cache mode should be used."
           },
           "cdrom": {
-            "$ref": "#/components/schemas/v1.CDRomTarget"
+            "$ref": "#/definitions/v1.CDRomTarget"
           },
           "dedicatedIOThread": {
             "type": "boolean",
             "description": "dedicatedIOThread indicates this disk should have an exclusive IO Thread. Enabling this implies useIOThreads = true. Defaults to false."
           },
           "disk": {
-            "$ref": "#/components/schemas/v1.DiskTarget"
+            "$ref": "#/definitions/v1.DiskTarget"
           },
           "floppy": {
-            "$ref": "#/components/schemas/v1.FloppyTarget"
+            "$ref": "#/definitions/v1.FloppyTarget"
           },
           "io": {
             "type": "string",
             "description": "IO specifies which QEMU disk IO mode should be used. Supported values are: native, default, threads."
           },
           "lun": {
-            "$ref": "#/components/schemas/v1.LunTarget"
+            "$ref": "#/definitions/v1.LunTarget"
           },
           "name": {
             "type": "string",
@@ -1650,35 +1649,35 @@
         "type": "object",
         "properties": {
           "chassis": {
-            "$ref": "#/components/schemas/v1.Chassis"
+            "$ref": "#/definitions/v1.Chassis"
           },
           "clock": {
-            "$ref": "#/components/schemas/v1.Clock"
+            "$ref": "#/definitions/v1.Clock"
           },
           "cpu": {
-            "$ref": "#/components/schemas/v1.CPU"
+            "$ref": "#/definitions/v1.CPU"
           },
           "devices": {
-            "$ref": "#/components/schemas/v1.Devices"
+            "$ref": "#/definitions/v1.Devices"
           },
           "features": {
-            "$ref": "#/components/schemas/v1.Features"
+            "$ref": "#/definitions/v1.Features"
           },
           "firmware": {
-            "$ref": "#/components/schemas/v1.Firmware"
+            "$ref": "#/definitions/v1.Firmware"
           },
           "ioThreadsPolicy": {
             "type": "string",
             "description": "Controls whether or not disks will share IOThreads. Omitting IOThreadsPolicy disables use of IOThreads. One of: shared, auto"
           },
           "machine": {
-            "$ref": "#/components/schemas/v1.Machine"
+            "$ref": "#/definitions/v1.Machine"
           },
           "memory": {
-            "$ref": "#/components/schemas/v1.Memory"
+            "$ref": "#/definitions/v1.Memory"
           },
           "resources": {
-            "$ref": "#/components/schemas/v1.ResourceRequirements"
+            "$ref": "#/definitions/v1.ResourceRequirements"
           }
         }
       },
@@ -1699,7 +1698,7 @@
         "type": "object",
         "properties": {
           "capacity": {
-            "$ref": "#/components/schemas/k8s.io.apimachinery.pkg.api.resource.Quantity"
+            "$ref": "#/definitions/k8s.io.apimachinery.pkg.api.resource.Quantity"
           }
         },
         "description": "EmptyDisk represents a temporary disk which shares the vmis lifecycle."
@@ -1708,7 +1707,7 @@
         "type": "object",
         "properties": {
           "persistentVolumeClaim": {
-            "$ref": "#/components/schemas/k8s.io.api.core.v1.PersistentVolumeClaimVolumeSource"
+            "$ref": "#/definitions/k8s.io.api.core.v1.PersistentVolumeClaimVolumeSource"
           }
         }
       },
@@ -1729,46 +1728,46 @@
         "type": "object",
         "properties": {
           "evmcs": {
-            "$ref": "#/components/schemas/v1.FeatureState"
+            "$ref": "#/definitions/v1.FeatureState"
           },
           "frequencies": {
-            "$ref": "#/components/schemas/v1.FeatureState"
+            "$ref": "#/definitions/v1.FeatureState"
           },
           "ipi": {
-            "$ref": "#/components/schemas/v1.FeatureState"
+            "$ref": "#/definitions/v1.FeatureState"
           },
           "reenlightenment": {
-            "$ref": "#/components/schemas/v1.FeatureState"
+            "$ref": "#/definitions/v1.FeatureState"
           },
           "relaxed": {
-            "$ref": "#/components/schemas/v1.FeatureState"
+            "$ref": "#/definitions/v1.FeatureState"
           },
           "reset": {
-            "$ref": "#/components/schemas/v1.FeatureState"
+            "$ref": "#/definitions/v1.FeatureState"
           },
           "runtime": {
-            "$ref": "#/components/schemas/v1.FeatureState"
+            "$ref": "#/definitions/v1.FeatureState"
           },
           "spinlocks": {
-            "$ref": "#/components/schemas/v1.FeatureSpinlocks"
+            "$ref": "#/definitions/v1.FeatureSpinlocks"
           },
           "synic": {
-            "$ref": "#/components/schemas/v1.FeatureState"
+            "$ref": "#/definitions/v1.FeatureState"
           },
           "synictimer": {
-            "$ref": "#/components/schemas/v1.FeatureState"
+            "$ref": "#/definitions/v1.FeatureState"
           },
           "tlbflush": {
-            "$ref": "#/components/schemas/v1.FeatureState"
+            "$ref": "#/definitions/v1.FeatureState"
           },
           "vapic": {
-            "$ref": "#/components/schemas/v1.FeatureState"
+            "$ref": "#/definitions/v1.FeatureState"
           },
           "vendorid": {
-            "$ref": "#/components/schemas/v1.FeatureVendorID"
+            "$ref": "#/definitions/v1.FeatureVendorID"
           },
           "vpindex": {
-            "$ref": "#/components/schemas/v1.FeatureState"
+            "$ref": "#/definitions/v1.FeatureState"
           }
         },
         "description": "Hyperv specific features."
@@ -1823,19 +1822,19 @@
         "type": "object",
         "properties": {
           "acpi": {
-            "$ref": "#/components/schemas/v1.FeatureState"
+            "$ref": "#/definitions/v1.FeatureState"
           },
           "apic": {
-            "$ref": "#/components/schemas/v1.FeatureAPIC"
+            "$ref": "#/definitions/v1.FeatureAPIC"
           },
           "hyperv": {
-            "$ref": "#/components/schemas/v1.FeatureHyperv"
+            "$ref": "#/definitions/v1.FeatureHyperv"
           },
           "kvm": {
-            "$ref": "#/components/schemas/v1.FeatureKVM"
+            "$ref": "#/definitions/v1.FeatureKVM"
           },
           "smm": {
-            "$ref": "#/components/schemas/v1.FeatureState"
+            "$ref": "#/definitions/v1.FeatureState"
           }
         }
       },
@@ -1851,7 +1850,7 @@
             "description": "Name is the device name"
           },
           "virtiofs": {
-            "$ref": "#/components/schemas/v1.FilesystemVirtiofs"
+            "$ref": "#/definitions/v1.FilesystemVirtiofs"
           }
         }
       },
@@ -1862,7 +1861,7 @@
         "type": "object",
         "properties": {
           "bootloader": {
-            "$ref": "#/components/schemas/v1.Bootloader"
+            "$ref": "#/definitions/v1.Bootloader"
           },
           "serial": {
             "type": "string",
@@ -1924,7 +1923,7 @@
         "type": "object",
         "properties": {
           "capacity": {
-            "$ref": "#/components/schemas/k8s.io.apimachinery.pkg.api.resource.Quantity"
+            "$ref": "#/definitions/k8s.io.apimachinery.pkg.api.resource.Quantity"
           },
           "path": {
             "type": "string",
@@ -2003,17 +2002,17 @@
             "format": "int32"
           },
           "bridge": {
-            "$ref": "#/components/schemas/v1.InterfaceBridge"
+            "$ref": "#/definitions/v1.InterfaceBridge"
           },
           "dhcpOptions": {
-            "$ref": "#/components/schemas/v1.DHCPOptions"
+            "$ref": "#/definitions/v1.DHCPOptions"
           },
           "macAddress": {
             "type": "string",
             "description": "Interface MAC address. For example: de:ad:00:00:be:af or DE-AD-00-00-BE-AF."
           },
           "masquerade": {
-            "$ref": "#/components/schemas/v1.InterfaceMasquerade"
+            "$ref": "#/definitions/v1.InterfaceMasquerade"
           },
           "model": {
             "type": "string",
@@ -2031,14 +2030,14 @@
             "type": "array",
             "description": "List of ports to be forwarded to the virtual machine.",
             "items": {
-              "$ref": "#/components/schemas/v1.Port"
+              "$ref": "#/definitions/v1.Port"
             }
           },
           "slirp": {
-            "$ref": "#/components/schemas/v1.InterfaceSlirp"
+            "$ref": "#/definitions/v1.InterfaceSlirp"
           },
           "sriov": {
-            "$ref": "#/components/schemas/v1.InterfaceSRIOV"
+            "$ref": "#/definitions/v1.InterfaceSRIOV"
           },
           "tag": {
             "type": "string",
@@ -2082,13 +2081,13 @@
             "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds"
           },
           "metadata": {
-            "$ref": "#/components/schemas/k8s.io.apimachinery.pkg.apis.meta.v1.ObjectMeta"
+            "$ref": "#/definitions/k8s.io.apimachinery.pkg.apis.meta.v1.ObjectMeta"
           },
           "spec": {
-            "$ref": "#/components/schemas/v1.KubeVirtSpec"
+            "$ref": "#/definitions/v1.KubeVirtSpec"
           },
           "status": {
-            "$ref": "#/components/schemas/v1.KubeVirtStatus"
+            "$ref": "#/definitions/v1.KubeVirtStatus"
           }
         },
         "description": "KubeVirt represents the object deploying all KubeVirt resources"
@@ -2097,7 +2096,7 @@
         "type": "object",
         "properties": {
           "selfSigned": {
-            "$ref": "#/components/schemas/v1.KubeVirtSelfSignConfiguration"
+            "$ref": "#/definitions/v1.KubeVirtSelfSignConfiguration"
           }
         }
       },
@@ -2130,10 +2129,10 @@
             "type": "string"
           },
           "cpuRequest": {
-            "$ref": "#/components/schemas/k8s.io.apimachinery.pkg.api.resource.Quantity"
+            "$ref": "#/definitions/k8s.io.apimachinery.pkg.api.resource.Quantity"
           },
           "developerConfiguration": {
-            "$ref": "#/components/schemas/v1.DeveloperConfiguration"
+            "$ref": "#/definitions/v1.DeveloperConfiguration"
           },
           "emulatedMachines": {
             "type": "array",
@@ -2152,10 +2151,10 @@
             "format": "int64"
           },
           "migrations": {
-            "$ref": "#/components/schemas/v1.MigrationConfiguration"
+            "$ref": "#/definitions/v1.MigrationConfiguration"
           },
           "network": {
-            "$ref": "#/components/schemas/v1.NetworkConfiguration"
+            "$ref": "#/definitions/v1.NetworkConfiguration"
           },
           "ovmfPath": {
             "type": "string"
@@ -2164,7 +2163,7 @@
             "type": "string"
           },
           "smbios": {
-            "$ref": "#/components/schemas/v1.SMBiosConfiguration"
+            "$ref": "#/definitions/v1.SMBiosConfiguration"
           },
           "supportedGuestAgentVersions": {
             "type": "array",
@@ -2188,7 +2187,7 @@
           "items": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/v1.KubeVirt"
+              "$ref": "#/definitions/v1.KubeVirt"
             }
           },
           "kind": {
@@ -2196,7 +2195,7 @@
             "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds"
           },
           "metadata": {
-            "$ref": "#/components/schemas/k8s.io.apimachinery.pkg.apis.meta.v1.ListMeta"
+            "$ref": "#/definitions/k8s.io.apimachinery.pkg.apis.meta.v1.ListMeta"
           }
         },
         "description": "KubeVirtList is a list of KubeVirts"
@@ -2205,13 +2204,13 @@
         "type": "object",
         "properties": {
           "caOverlapInterval": {
-            "$ref": "#/components/schemas/k8s.io.apimachinery.pkg.apis.meta.v1.Duration"
+            "$ref": "#/definitions/k8s.io.apimachinery.pkg.apis.meta.v1.Duration"
           },
           "caRotateInterval": {
-            "$ref": "#/components/schemas/k8s.io.apimachinery.pkg.apis.meta.v1.Duration"
+            "$ref": "#/definitions/k8s.io.apimachinery.pkg.apis.meta.v1.Duration"
           },
           "certRotateInterval": {
-            "$ref": "#/components/schemas/k8s.io.apimachinery.pkg.apis.meta.v1.Duration"
+            "$ref": "#/definitions/k8s.io.apimachinery.pkg.apis.meta.v1.Duration"
           }
         }
       },
@@ -2219,13 +2218,13 @@
         "type": "object",
         "properties": {
           "certificateRotateStrategy": {
-            "$ref": "#/components/schemas/v1.KubeVirtCertificateRotateStrategy"
+            "$ref": "#/definitions/v1.KubeVirtCertificateRotateStrategy"
           },
           "configuration": {
-            "$ref": "#/components/schemas/v1.KubeVirtConfiguration"
+            "$ref": "#/definitions/v1.KubeVirtConfiguration"
           },
-          "customizeComponents": {
-            "$ref": "#/components/schemas/v1.CustomizeComponents"
+          "customizedefinitions": {
+            "$ref": "#/definitions/v1.Customizedefinitions"
           },
           "imagePullPolicy": {
             "type": "string",
@@ -2240,7 +2239,7 @@
             "description": "The image tag to use for the continer images installed. Defaults to the same tag as the operator's container image."
           },
           "infra": {
-            "$ref": "#/components/schemas/v1.ComponentConfig"
+            "$ref": "#/definitions/v1.ComponentConfig"
           },
           "monitorAccount": {
             "type": "string",
@@ -2252,18 +2251,18 @@
           },
           "productName": {
             "type": "string",
-            "description": "Designate the apps.kubevirt.io/part-of label for KubeVirt components. Useful if KubeVirt is included as part of a product. If ProductName is not specified, the part-of label will be omitted."
+            "description": "Designate the apps.kubevirt.io/part-of label for KubeVirt definitions. Useful if KubeVirt is included as part of a product. If ProductName is not specified, the part-of label will be omitted."
           },
           "productVersion": {
             "type": "string",
-            "description": "Designate the apps.kubevirt.io/version label for KubeVirt components. Useful if KubeVirt is included as part of a product. If ProductVersion is not specified, KubeVirt's version will be used."
+            "description": "Designate the apps.kubevirt.io/version label for KubeVirt definitions. Useful if KubeVirt is included as part of a product. If ProductVersion is not specified, KubeVirt's version will be used."
           },
           "uninstallStrategy": {
             "type": "string",
             "description": "Specifies if kubevirt can be deleted if workloads are still present. This is mainly a precaution to avoid accidental data loss"
           },
           "workloads": {
-            "$ref": "#/components/schemas/v1.ComponentConfig"
+            "$ref": "#/definitions/v1.ComponentConfig"
           }
         }
       },
@@ -2273,7 +2272,7 @@
           "conditions": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/v1.KubeVirtCondition"
+              "$ref": "#/definitions/v1.KubeVirtCondition"
             }
           },
           "observedDeploymentConfig": {
@@ -2338,10 +2337,10 @@
         "type": "object",
         "properties": {
           "guest": {
-            "$ref": "#/components/schemas/k8s.io.apimachinery.pkg.api.resource.Quantity"
+            "$ref": "#/definitions/k8s.io.apimachinery.pkg.api.resource.Quantity"
           },
           "hugepages": {
-            "$ref": "#/components/schemas/v1.Hugepages"
+            "$ref": "#/definitions/v1.Hugepages"
           }
         },
         "description": "Memory allows specifying the VirtualMachineInstance memory features."
@@ -2356,7 +2355,7 @@
             "type": "boolean"
           },
           "bandwidthPerMigration": {
-            "$ref": "#/components/schemas/k8s.io.apimachinery.pkg.api.resource.Quantity"
+            "$ref": "#/definitions/k8s.io.apimachinery.pkg.api.resource.Quantity"
           },
           "completionTimeoutPerGiB": {
             "type": "integer",
@@ -2407,14 +2406,14 @@
         "type": "object",
         "properties": {
           "multus": {
-            "$ref": "#/components/schemas/v1.MultusNetwork"
+            "$ref": "#/definitions/v1.MultusNetwork"
           },
           "name": {
             "type": "string",
             "description": "Network name. Must be a DNS_LABEL and unique within the vm. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names"
           },
           "pod": {
-            "$ref": "#/components/schemas/v1.PodNetwork"
+            "$ref": "#/definitions/v1.PodNetwork"
           }
         },
         "description": "Network represents a network type and a resource that should be connected to the vm."
@@ -2438,7 +2437,7 @@
         "type": "object",
         "properties": {
           "affinity": {
-            "$ref": "#/components/schemas/k8s.io.api.core.v1.Affinity"
+            "$ref": "#/definitions/k8s.io.api.core.v1.Affinity"
           },
           "nodeSelector": {
             "type": "object",
@@ -2451,7 +2450,7 @@
             "type": "array",
             "description": "tolerations is a list of tolerations applied to the relevant kind of pods See https://kubernetes.io/docs/concepts/configuration/taint-and-toleration/ for more info. These are additional tolerations other than default ones.",
             "items": {
-              "$ref": "#/components/schemas/k8s.io.api.core.v1.Toleration"
+              "$ref": "#/definitions/k8s.io.api.core.v1.Toleration"
             },
             "x-kubernetes-list-type": "map"
           }
@@ -2512,7 +2511,7 @@
             "format": "int32"
           },
           "httpGet": {
-            "$ref": "#/components/schemas/k8s.io.api.core.v1.HTTPGetAction"
+            "$ref": "#/definitions/k8s.io.api.core.v1.HTTPGetAction"
           },
           "initialDelaySeconds": {
             "type": "integer",
@@ -2530,7 +2529,7 @@
             "format": "int32"
           },
           "tcpSocket": {
-            "$ref": "#/components/schemas/k8s.io.api.core.v1.TCPSocketAction"
+            "$ref": "#/definitions/k8s.io.api.core.v1.TCPSocketAction"
           },
           "timeoutSeconds": {
             "type": "integer",
@@ -2563,7 +2562,7 @@
           "limits": {
             "type": "object",
             "additionalProperties": {
-              "$ref": "#/components/schemas/k8s.io.apimachinery.pkg.api.resource.Quantity"
+              "$ref": "#/definitions/k8s.io.apimachinery.pkg.api.resource.Quantity"
             },
             "description": "Limits describes the maximum amount of compute resources allowed. Valid resource keys are \"memory\" and \"cpu\"."
           },
@@ -2574,7 +2573,7 @@
           "requests": {
             "type": "object",
             "additionalProperties": {
-              "$ref": "#/components/schemas/k8s.io.apimachinery.pkg.api.resource.Quantity"
+              "$ref": "#/definitions/k8s.io.apimachinery.pkg.api.resource.Quantity"
             },
             "description": "Requests is a description of the initial vmi resources. Valid resource keys are \"memory\" and \"cpu\"."
           }
@@ -2655,19 +2654,19 @@
         "type": "object",
         "properties": {
           "hpet": {
-            "$ref": "#/components/schemas/v1.HPETTimer"
+            "$ref": "#/definitions/v1.HPETTimer"
           },
           "hyperv": {
-            "$ref": "#/components/schemas/v1.HypervTimer"
+            "$ref": "#/definitions/v1.HypervTimer"
           },
           "kvm": {
-            "$ref": "#/components/schemas/v1.KVMTimer"
+            "$ref": "#/definitions/v1.KVMTimer"
           },
           "pit": {
-            "$ref": "#/components/schemas/v1.PITTimer"
+            "$ref": "#/definitions/v1.PITTimer"
           },
           "rtc": {
-            "$ref": "#/components/schemas/v1.RTCTimer"
+            "$ref": "#/definitions/v1.RTCTimer"
           }
         },
         "description": "Represents all available timers in a vmi."
@@ -2687,13 +2686,13 @@
             "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds"
           },
           "metadata": {
-            "$ref": "#/components/schemas/k8s.io.apimachinery.pkg.apis.meta.v1.ObjectMeta"
+            "$ref": "#/definitions/k8s.io.apimachinery.pkg.apis.meta.v1.ObjectMeta"
           },
           "spec": {
-            "$ref": "#/components/schemas/v1.VirtualMachineSpec"
+            "$ref": "#/definitions/v1.VirtualMachineSpec"
           },
           "status": {
-            "$ref": "#/components/schemas/v1.VirtualMachineStatus"
+            "$ref": "#/definitions/v1.VirtualMachineStatus"
           }
         },
         "description": "VirtualMachine handles the VirtualMachines that are not running or are in a stopped state The VirtualMachine contains the template to create the VirtualMachineInstance. It also mirrors the running state of the created VirtualMachineInstance in its status."
@@ -2735,13 +2734,13 @@
             "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds"
           },
           "metadata": {
-            "$ref": "#/components/schemas/k8s.io.apimachinery.pkg.apis.meta.v1.ObjectMeta"
+            "$ref": "#/definitions/k8s.io.apimachinery.pkg.apis.meta.v1.ObjectMeta"
           },
           "spec": {
-            "$ref": "#/components/schemas/v1.VirtualMachineInstanceSpec"
+            "$ref": "#/definitions/v1.VirtualMachineInstanceSpec"
           },
           "status": {
-            "$ref": "#/components/schemas/v1.VirtualMachineInstanceStatus"
+            "$ref": "#/definitions/v1.VirtualMachineInstanceStatus"
           }
         },
         "description": "VirtualMachineInstance is *the* VirtualMachineInstance Definition. It represents a virtual machine in the runtime environment of kubernetes."
@@ -2806,7 +2805,7 @@
           "disks": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/v1.VirtualMachineInstanceFileSystem"
+              "$ref": "#/definitions/v1.VirtualMachineInstanceFileSystem"
             }
           }
         },
@@ -2825,7 +2824,7 @@
           "items": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/v1.VirtualMachineInstanceFileSystem"
+              "$ref": "#/definitions/v1.VirtualMachineInstanceFileSystem"
             }
           },
           "kind": {
@@ -2833,7 +2832,7 @@
             "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds"
           },
           "metadata": {
-            "$ref": "#/components/schemas/k8s.io.apimachinery.pkg.apis.meta.v1.ListMeta"
+            "$ref": "#/definitions/k8s.io.apimachinery.pkg.apis.meta.v1.ListMeta"
           }
         },
         "description": "VirtualMachineInstanceFileSystemList comprises the list of all filesystems on guest machine"
@@ -2846,7 +2845,7 @@
             "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources"
           },
           "fsInfo": {
-            "$ref": "#/components/schemas/v1.VirtualMachineInstanceFileSystemInfo"
+            "$ref": "#/definitions/v1.VirtualMachineInstanceFileSystemInfo"
           },
           "guestAgentVersion": {
             "type": "string",
@@ -2861,7 +2860,7 @@
             "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds"
           },
           "os": {
-            "$ref": "#/components/schemas/v1.VirtualMachineInstanceGuestOSInfo"
+            "$ref": "#/definitions/v1.VirtualMachineInstanceGuestOSInfo"
           },
           "timezone": {
             "type": "string",
@@ -2871,7 +2870,7 @@
             "type": "array",
             "description": "UserList is a list of active guest OS users",
             "items": {
-              "$ref": "#/components/schemas/v1.VirtualMachineInstanceGuestOSUser"
+              "$ref": "#/definitions/v1.VirtualMachineInstanceGuestOSUser"
             }
           }
         },
@@ -2946,7 +2945,7 @@
           "items": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/v1.VirtualMachineInstanceGuestOSUser"
+              "$ref": "#/definitions/v1.VirtualMachineInstanceGuestOSUser"
             }
           },
           "kind": {
@@ -2954,7 +2953,7 @@
             "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds"
           },
           "metadata": {
-            "$ref": "#/components/schemas/k8s.io.apimachinery.pkg.apis.meta.v1.ListMeta"
+            "$ref": "#/definitions/k8s.io.apimachinery.pkg.apis.meta.v1.ListMeta"
           }
         },
         "description": "VirtualMachineInstanceGuestOSUserList comprises the list of all active users on guest machine"
@@ -2972,7 +2971,7 @@
           "items": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/v1.VirtualMachineInstance"
+              "$ref": "#/definitions/v1.VirtualMachineInstance"
             }
           },
           "kind": {
@@ -2980,7 +2979,7 @@
             "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds"
           },
           "metadata": {
-            "$ref": "#/components/schemas/k8s.io.apimachinery.pkg.apis.meta.v1.ListMeta"
+            "$ref": "#/definitions/k8s.io.apimachinery.pkg.apis.meta.v1.ListMeta"
           }
         },
         "description": "VirtualMachineInstanceList is a list of VirtualMachines"
@@ -3000,13 +2999,13 @@
             "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds"
           },
           "metadata": {
-            "$ref": "#/components/schemas/k8s.io.apimachinery.pkg.apis.meta.v1.ObjectMeta"
+            "$ref": "#/definitions/k8s.io.apimachinery.pkg.apis.meta.v1.ObjectMeta"
           },
           "spec": {
-            "$ref": "#/components/schemas/v1.VirtualMachineInstanceMigrationSpec"
+            "$ref": "#/definitions/v1.VirtualMachineInstanceMigrationSpec"
           },
           "status": {
-            "$ref": "#/components/schemas/v1.VirtualMachineInstanceMigrationStatus"
+            "$ref": "#/definitions/v1.VirtualMachineInstanceMigrationStatus"
           }
         },
         "description": "VirtualMachineInstanceMigration represents the object tracking a VMI's migration to another host in the cluster"
@@ -3045,7 +3044,7 @@
           "items": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/v1.VirtualMachineInstanceMigration"
+              "$ref": "#/definitions/v1.VirtualMachineInstanceMigration"
             }
           },
           "kind": {
@@ -3053,7 +3052,7 @@
             "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds"
           },
           "metadata": {
-            "$ref": "#/components/schemas/k8s.io.apimachinery.pkg.apis.meta.v1.ListMeta"
+            "$ref": "#/definitions/k8s.io.apimachinery.pkg.apis.meta.v1.ListMeta"
           }
         },
         "description": "VirtualMachineInstanceMigrationList is a list of VirtualMachineMigrations"
@@ -3083,7 +3082,7 @@
             "description": "Indicates the migration completed"
           },
           "endTimestamp": {
-            "$ref": "#/components/schemas/k8s.io.apimachinery.pkg.apis.meta.v1.Time"
+            "$ref": "#/definitions/k8s.io.apimachinery.pkg.apis.meta.v1.Time"
           },
           "failed": {
             "type": "boolean",
@@ -3102,7 +3101,7 @@
             "description": "The source node that the VMI originated on"
           },
           "startTimestamp": {
-            "$ref": "#/components/schemas/k8s.io.apimachinery.pkg.apis.meta.v1.Time"
+            "$ref": "#/definitions/k8s.io.apimachinery.pkg.apis.meta.v1.Time"
           },
           "targetDirectMigrationNodePorts": {
             "type": "object",
@@ -3136,7 +3135,7 @@
           "conditions": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/v1.VirtualMachineInstanceMigrationCondition"
+              "$ref": "#/definitions/v1.VirtualMachineInstanceMigrationCondition"
             }
           },
           "phase": {
@@ -3185,10 +3184,10 @@
             "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds"
           },
           "metadata": {
-            "$ref": "#/components/schemas/k8s.io.apimachinery.pkg.apis.meta.v1.ObjectMeta"
+            "$ref": "#/definitions/k8s.io.apimachinery.pkg.apis.meta.v1.ObjectMeta"
           },
           "spec": {
-            "$ref": "#/components/schemas/v1.VirtualMachineInstancePresetSpec"
+            "$ref": "#/definitions/v1.VirtualMachineInstancePresetSpec"
           }
         }
       },
@@ -3205,7 +3204,7 @@
           "items": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/v1.VirtualMachineInstancePreset"
+              "$ref": "#/definitions/v1.VirtualMachineInstancePreset"
             }
           },
           "kind": {
@@ -3213,7 +3212,7 @@
             "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds"
           },
           "metadata": {
-            "$ref": "#/components/schemas/k8s.io.apimachinery.pkg.apis.meta.v1.ListMeta"
+            "$ref": "#/definitions/k8s.io.apimachinery.pkg.apis.meta.v1.ListMeta"
           }
         },
         "description": "VirtualMachineInstancePresetList is a list of VirtualMachinePresets"
@@ -3225,10 +3224,10 @@
         "type": "object",
         "properties": {
           "domain": {
-            "$ref": "#/components/schemas/v1.DomainSpec"
+            "$ref": "#/definitions/v1.DomainSpec"
           },
           "selector": {
-            "$ref": "#/components/schemas/k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector"
+            "$ref": "#/definitions/k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector"
           }
         }
       },
@@ -3247,13 +3246,13 @@
             "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds"
           },
           "metadata": {
-            "$ref": "#/components/schemas/k8s.io.apimachinery.pkg.apis.meta.v1.ObjectMeta"
+            "$ref": "#/definitions/k8s.io.apimachinery.pkg.apis.meta.v1.ObjectMeta"
           },
           "spec": {
-            "$ref": "#/components/schemas/v1.VirtualMachineInstanceReplicaSetSpec"
+            "$ref": "#/definitions/v1.VirtualMachineInstanceReplicaSetSpec"
           },
           "status": {
-            "$ref": "#/components/schemas/v1.VirtualMachineInstanceReplicaSetStatus"
+            "$ref": "#/definitions/v1.VirtualMachineInstanceReplicaSetStatus"
           }
         },
         "description": "VirtualMachineInstance is *the* VirtualMachineInstance Definition. It represents a virtual machine in the runtime environment of kubernetes."
@@ -3292,7 +3291,7 @@
           "items": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/v1.VirtualMachineInstanceReplicaSet"
+              "$ref": "#/definitions/v1.VirtualMachineInstanceReplicaSet"
             }
           },
           "kind": {
@@ -3300,7 +3299,7 @@
             "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds"
           },
           "metadata": {
-            "$ref": "#/components/schemas/k8s.io.apimachinery.pkg.apis.meta.v1.ListMeta"
+            "$ref": "#/definitions/k8s.io.apimachinery.pkg.apis.meta.v1.ListMeta"
           }
         },
         "description": "VMIList is a list of VMIs"
@@ -3322,10 +3321,10 @@
             "format": "int32"
           },
           "selector": {
-            "$ref": "#/components/schemas/k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector"
+            "$ref": "#/definitions/k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector"
           },
           "template": {
-            "$ref": "#/components/schemas/v1.VirtualMachineInstanceTemplateSpec"
+            "$ref": "#/definitions/v1.VirtualMachineInstanceTemplateSpec"
           }
         }
       },
@@ -3335,7 +3334,7 @@
           "conditions": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/v1.VirtualMachineInstanceReplicaSetCondition"
+              "$ref": "#/definitions/v1.VirtualMachineInstanceReplicaSetCondition"
             }
           },
           "labelSelector": {
@@ -3361,17 +3360,17 @@
         "type": "object",
         "properties": {
           "affinity": {
-            "$ref": "#/components/schemas/k8s.io.api.core.v1.Affinity"
+            "$ref": "#/definitions/k8s.io.api.core.v1.Affinity"
           },
           "dnsConfig": {
-            "$ref": "#/components/schemas/k8s.io.api.core.v1.PodDNSConfig"
+            "$ref": "#/definitions/k8s.io.api.core.v1.PodDNSConfig"
           },
           "dnsPolicy": {
             "type": "string",
             "description": "Set DNS policy for the pod. Defaults to \"ClusterFirst\". Valid values are 'ClusterFirstWithHostNet', 'ClusterFirst', 'Default' or 'None'. DNS parameters given in DNSConfig will be merged with the policy selected with DNSPolicy. To have DNS options set along with hostNetwork, you have to specify DNS policy explicitly to 'ClusterFirstWithHostNet'."
           },
           "domain": {
-            "$ref": "#/components/schemas/v1.DomainSpec"
+            "$ref": "#/definitions/v1.DomainSpec"
           },
           "evictionStrategy": {
             "type": "string",
@@ -3382,13 +3381,13 @@
             "description": "Specifies the hostname of the vmi If not specified, the hostname will be set to the name of the vmi, if dhcp or cloud-init is configured properly."
           },
           "livenessProbe": {
-            "$ref": "#/components/schemas/v1.Probe"
+            "$ref": "#/definitions/v1.Probe"
           },
           "networks": {
             "type": "array",
             "description": "List of networks that can be attached to a vm's virtual interface.",
             "items": {
-              "$ref": "#/components/schemas/v1.Network"
+              "$ref": "#/definitions/v1.Network"
             }
           },
           "nodeSelector": {
@@ -3403,7 +3402,7 @@
             "description": "If specified, indicates the pod's priority. If not specified, the pod priority will be default or zero if there is no default."
           },
           "readinessProbe": {
-            "$ref": "#/components/schemas/v1.Probe"
+            "$ref": "#/definitions/v1.Probe"
           },
           "schedulerName": {
             "type": "string",
@@ -3422,14 +3421,14 @@
             "type": "array",
             "description": "If toleration is specified, obey all the toleration rules.",
             "items": {
-              "$ref": "#/components/schemas/k8s.io.api.core.v1.Toleration"
+              "$ref": "#/definitions/k8s.io.api.core.v1.Toleration"
             }
           },
           "volumes": {
             "type": "array",
             "description": "List of volumes that can be mounted by disks belonging to the vmi.",
             "items": {
-              "$ref": "#/components/schemas/v1.Volume"
+              "$ref": "#/definitions/v1.Volume"
             }
           }
         },
@@ -3449,21 +3448,21 @@
             "type": "array",
             "description": "Conditions are specific points in VirtualMachineInstance's pod runtime.",
             "items": {
-              "$ref": "#/components/schemas/v1.VirtualMachineInstanceCondition"
+              "$ref": "#/definitions/v1.VirtualMachineInstanceCondition"
             }
           },
           "evacuationNodeName": {
             "type": "string",
-            "description": "EvacuationNodeName is used to track the eviction process of a VMI. It stores the name of the node that we want to evacuate. It is meant to be used by KubeVirt core components only and can't be set or modified by users."
+            "description": "EvacuationNodeName is used to track the eviction process of a VMI. It stores the name of the node that we want to evacuate. It is meant to be used by KubeVirt core definitions only and can't be set or modified by users."
           },
           "guestOSInfo": {
-            "$ref": "#/components/schemas/v1.VirtualMachineInstanceGuestOSInfo"
+            "$ref": "#/definitions/v1.VirtualMachineInstanceGuestOSInfo"
           },
           "interfaces": {
             "type": "array",
             "description": "Interfaces represent the details of available network interfaces.",
             "items": {
-              "$ref": "#/components/schemas/v1.VirtualMachineInstanceNetworkInterface"
+              "$ref": "#/definitions/v1.VirtualMachineInstanceNetworkInterface"
             }
           },
           "migrationMethod": {
@@ -3471,7 +3470,7 @@
             "description": "Represents the method using which the vmi can be migrated: live migration or block migration"
           },
           "migrationState": {
-            "$ref": "#/components/schemas/v1.VirtualMachineInstanceMigrationState"
+            "$ref": "#/definitions/v1.VirtualMachineInstanceMigrationState"
           },
           "nodeName": {
             "type": "string",
@@ -3496,10 +3495,10 @@
         "type": "object",
         "properties": {
           "metadata": {
-            "$ref": "#/components/schemas/k8s.io.apimachinery.pkg.apis.meta.v1.ObjectMeta"
+            "$ref": "#/definitions/k8s.io.apimachinery.pkg.apis.meta.v1.ObjectMeta"
           },
           "spec": {
-            "$ref": "#/components/schemas/v1.VirtualMachineInstanceSpec"
+            "$ref": "#/definitions/v1.VirtualMachineInstanceSpec"
           }
         }
       },
@@ -3516,7 +3515,7 @@
           "items": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/v1.VirtualMachine"
+              "$ref": "#/definitions/v1.VirtualMachine"
             }
           },
           "kind": {
@@ -3524,7 +3523,7 @@
             "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds"
           },
           "metadata": {
-            "$ref": "#/components/schemas/k8s.io.apimachinery.pkg.apis.meta.v1.ListMeta"
+            "$ref": "#/definitions/k8s.io.apimachinery.pkg.apis.meta.v1.ListMeta"
           }
         },
         "description": "VirtualMachineList is a list of virtualmachines"
@@ -3539,7 +3538,7 @@
             "type": "array",
             "description": "dataVolumeTemplates is a list of dataVolumes that the VirtualMachineInstance template can reference. DataVolumes in this list are dynamically created for the VirtualMachine and are tied to the VirtualMachine's life-cycle.",
             "items": {
-              "$ref": "#/components/schemas/v1.DataVolumeTemplateSpec"
+              "$ref": "#/definitions/v1.DataVolumeTemplateSpec"
             }
           },
           "runStrategy": {
@@ -3551,7 +3550,7 @@
             "description": "Running controls whether the associatied VirtualMachineInstance is created or not Mutually exclusive with RunStrategy"
           },
           "template": {
-            "$ref": "#/components/schemas/v1.VirtualMachineInstanceTemplateSpec"
+            "$ref": "#/definitions/v1.VirtualMachineInstanceTemplateSpec"
           }
         },
         "description": "VirtualMachineSpec describes how the proper VirtualMachine should look like"
@@ -3586,7 +3585,7 @@
             "type": "array",
             "description": "Hold the state information of the VirtualMachine and its VirtualMachineInstance",
             "items": {
-              "$ref": "#/components/schemas/v1.VirtualMachineCondition"
+              "$ref": "#/definitions/v1.VirtualMachineCondition"
             }
           },
           "created": {
@@ -3605,7 +3604,7 @@
             "type": "array",
             "description": "StateChangeRequests indicates a list of actions that should be taken on a VMI e.g. stop a specific VMI then start a new one.",
             "items": {
-              "$ref": "#/components/schemas/v1.VirtualMachineStateChangeRequest"
+              "$ref": "#/definitions/v1.VirtualMachineStateChangeRequest"
             }
           }
         },
@@ -3618,41 +3617,41 @@
         "type": "object",
         "properties": {
           "cloudInitConfigDrive": {
-            "$ref": "#/components/schemas/v1.CloudInitConfigDriveSource"
+            "$ref": "#/definitions/v1.CloudInitConfigDriveSource"
           },
           "cloudInitNoCloud": {
-            "$ref": "#/components/schemas/v1.CloudInitNoCloudSource"
+            "$ref": "#/definitions/v1.CloudInitNoCloudSource"
           },
           "configMap": {
-            "$ref": "#/components/schemas/v1.ConfigMapVolumeSource"
+            "$ref": "#/definitions/v1.ConfigMapVolumeSource"
           },
           "containerDisk": {
-            "$ref": "#/components/schemas/v1.ContainerDiskSource"
+            "$ref": "#/definitions/v1.ContainerDiskSource"
           },
           "dataVolume": {
-            "$ref": "#/components/schemas/v1.DataVolumeSource"
+            "$ref": "#/definitions/v1.DataVolumeSource"
           },
           "emptyDisk": {
-            "$ref": "#/components/schemas/v1.EmptyDiskSource"
+            "$ref": "#/definitions/v1.EmptyDiskSource"
           },
           "ephemeral": {
-            "$ref": "#/components/schemas/v1.EphemeralVolumeSource"
+            "$ref": "#/definitions/v1.EphemeralVolumeSource"
           },
           "hostDisk": {
-            "$ref": "#/components/schemas/v1.HostDisk"
+            "$ref": "#/definitions/v1.HostDisk"
           },
           "name": {
             "type": "string",
             "description": "Volume's name. Must be a DNS_LABEL and unique within the vmi. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names"
           },
           "persistentVolumeClaim": {
-            "$ref": "#/components/schemas/k8s.io.api.core.v1.PersistentVolumeClaimVolumeSource"
+            "$ref": "#/definitions/k8s.io.api.core.v1.PersistentVolumeClaimVolumeSource"
           },
           "secret": {
-            "$ref": "#/components/schemas/v1.SecretVolumeSource"
+            "$ref": "#/definitions/v1.SecretVolumeSource"
           },
           "serviceAccount": {
-            "$ref": "#/components/schemas/v1.ServiceAccountVolumeSource"
+            "$ref": "#/definitions/v1.ServiceAccountVolumeSource"
           }
         },
         "description": "Volume represents a named volume in a vmi."
@@ -3664,7 +3663,7 @@
         "type": "object",
         "properties": {
           "i6300esb": {
-            "$ref": "#/components/schemas/v1.I6300ESBWatchdog"
+            "$ref": "#/definitions/v1.I6300ESBWatchdog"
           },
           "name": {
             "type": "string",
@@ -3703,28 +3702,28 @@
         "type": "object",
         "properties": {
           "blank": {
-            "$ref": "#/components/schemas/v1alpha1.DataVolumeBlankImage"
+            "$ref": "#/definitions/v1alpha1.DataVolumeBlankImage"
           },
           "http": {
-            "$ref": "#/components/schemas/v1alpha1.DataVolumeSourceHTTP"
+            "$ref": "#/definitions/v1alpha1.DataVolumeSourceHTTP"
           },
           "imageio": {
-            "$ref": "#/components/schemas/v1alpha1.DataVolumeSourceImageIO"
+            "$ref": "#/definitions/v1alpha1.DataVolumeSourceImageIO"
           },
           "pvc": {
-            "$ref": "#/components/schemas/v1alpha1.DataVolumeSourcePVC"
+            "$ref": "#/definitions/v1alpha1.DataVolumeSourcePVC"
           },
           "registry": {
-            "$ref": "#/components/schemas/v1alpha1.DataVolumeSourceRegistry"
+            "$ref": "#/definitions/v1alpha1.DataVolumeSourceRegistry"
           },
           "s3": {
-            "$ref": "#/components/schemas/v1alpha1.DataVolumeSourceS3"
+            "$ref": "#/definitions/v1alpha1.DataVolumeSourceS3"
           },
           "upload": {
-            "$ref": "#/components/schemas/v1alpha1.DataVolumeSourceUpload"
+            "$ref": "#/definitions/v1alpha1.DataVolumeSourceUpload"
           },
           "vddk": {
-            "$ref": "#/components/schemas/v1alpha1.DataVolumeSourceVDDK"
+            "$ref": "#/definitions/v1alpha1.DataVolumeSourceVDDK"
           }
         },
         "description": "DataVolumeSource represents the source for our Data Volume, this can be HTTP, Imageio, S3, Registry or an existing PVC"
@@ -3874,10 +3873,10 @@
             "description": "DataVolumeContentType options: \"kubevirt\", \"archive\""
           },
           "pvc": {
-            "$ref": "#/components/schemas/k8s.io.api.core.v1.PersistentVolumeClaimSpec"
+            "$ref": "#/definitions/k8s.io.api.core.v1.PersistentVolumeClaimSpec"
           },
           "source": {
-            "$ref": "#/components/schemas/v1alpha1.DataVolumeSource"
+            "$ref": "#/definitions/v1alpha1.DataVolumeSource"
           }
         },
         "description": "DataVolumeSpec defines the DataVolume type specification"
@@ -3889,7 +3888,7 @@
             "type": "string"
           },
           "time": {
-            "$ref": "#/components/schemas/k8s.io.apimachinery.pkg.apis.meta.v1.Time"
+            "$ref": "#/definitions/k8s.io.apimachinery.pkg.apis.meta.v1.Time"
           }
         },
         "description": "Error is the last error encountered during the snapshot/restore"
@@ -3898,7 +3897,7 @@
         "type": "object",
         "properties": {
           "virtualMachine": {
-            "$ref": "#/components/schemas/v1.VirtualMachine"
+            "$ref": "#/definitions/v1.VirtualMachine"
           }
         },
         "description": "SourceSpec contains the appropriate spec for the resource being snapshotted"
@@ -3918,13 +3917,13 @@
             "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds"
           },
           "metadata": {
-            "$ref": "#/components/schemas/k8s.io.apimachinery.pkg.apis.meta.v1.ObjectMeta"
+            "$ref": "#/definitions/k8s.io.apimachinery.pkg.apis.meta.v1.ObjectMeta"
           },
           "spec": {
-            "$ref": "#/components/schemas/v1alpha1.VirtualMachineRestoreSpec"
+            "$ref": "#/definitions/v1alpha1.VirtualMachineRestoreSpec"
           },
           "status": {
-            "$ref": "#/components/schemas/v1alpha1.VirtualMachineRestoreStatus"
+            "$ref": "#/definitions/v1alpha1.VirtualMachineRestoreStatus"
           }
         },
         "description": "VirtualMachineRestore defines the operation of restoring a VM"
@@ -3943,7 +3942,7 @@
           "items": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/v1alpha1.VirtualMachineRestore"
+              "$ref": "#/definitions/v1alpha1.VirtualMachineRestore"
             }
           },
           "kind": {
@@ -3951,7 +3950,7 @@
             "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds"
           },
           "metadata": {
-            "$ref": "#/components/schemas/k8s.io.apimachinery.pkg.apis.meta.v1.ListMeta"
+            "$ref": "#/definitions/k8s.io.apimachinery.pkg.apis.meta.v1.ListMeta"
           }
         },
         "description": "VirtualMachineRestoreList is a list of VirtualMachineRestore resources"
@@ -3964,7 +3963,7 @@
         "type": "object",
         "properties": {
           "target": {
-            "$ref": "#/components/schemas/k8s.io.api.core.v1.TypedLocalObjectReference"
+            "$ref": "#/definitions/k8s.io.api.core.v1.TypedLocalObjectReference"
           },
           "virtualMachineSnapshotName": {
             "type": "string"
@@ -3981,7 +3980,7 @@
           "conditions": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/v1alpha1.Condition"
+              "$ref": "#/definitions/v1alpha1.Condition"
             }
           },
           "deletedDataVolumes": {
@@ -3991,12 +3990,12 @@
             }
           },
           "restoreTime": {
-            "$ref": "#/components/schemas/k8s.io.apimachinery.pkg.apis.meta.v1.Time"
+            "$ref": "#/definitions/k8s.io.apimachinery.pkg.apis.meta.v1.Time"
           },
           "restores": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/v1alpha1.VolumeRestore"
+              "$ref": "#/definitions/v1alpha1.VolumeRestore"
             }
           }
         },
@@ -4017,13 +4016,13 @@
             "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds"
           },
           "metadata": {
-            "$ref": "#/components/schemas/k8s.io.apimachinery.pkg.apis.meta.v1.ObjectMeta"
+            "$ref": "#/definitions/k8s.io.apimachinery.pkg.apis.meta.v1.ObjectMeta"
           },
           "spec": {
-            "$ref": "#/components/schemas/v1alpha1.VirtualMachineSnapshotSpec"
+            "$ref": "#/definitions/v1alpha1.VirtualMachineSnapshotSpec"
           },
           "status": {
-            "$ref": "#/components/schemas/v1alpha1.VirtualMachineSnapshotStatus"
+            "$ref": "#/definitions/v1alpha1.VirtualMachineSnapshotStatus"
           }
         },
         "description": "VirtualMachineSnapshot defines the operation of snapshotting a VM"
@@ -4043,13 +4042,13 @@
             "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds"
           },
           "metadata": {
-            "$ref": "#/components/schemas/k8s.io.apimachinery.pkg.apis.meta.v1.ObjectMeta"
+            "$ref": "#/definitions/k8s.io.apimachinery.pkg.apis.meta.v1.ObjectMeta"
           },
           "spec": {
-            "$ref": "#/components/schemas/v1alpha1.VirtualMachineSnapshotContentSpec"
+            "$ref": "#/definitions/v1alpha1.VirtualMachineSnapshotContentSpec"
           },
           "status": {
-            "$ref": "#/components/schemas/v1alpha1.VirtualMachineSnapshotContentStatus"
+            "$ref": "#/definitions/v1alpha1.VirtualMachineSnapshotContentStatus"
           }
         },
         "description": "VirtualMachineSnapshotContent contains the snapshot data"
@@ -4068,7 +4067,7 @@
           "items": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/v1alpha1.VirtualMachineSnapshotContent"
+              "$ref": "#/definitions/v1alpha1.VirtualMachineSnapshotContent"
             }
           },
           "kind": {
@@ -4076,7 +4075,7 @@
             "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds"
           },
           "metadata": {
-            "$ref": "#/components/schemas/k8s.io.apimachinery.pkg.apis.meta.v1.ListMeta"
+            "$ref": "#/definitions/k8s.io.apimachinery.pkg.apis.meta.v1.ListMeta"
           }
         },
         "description": "VirtualMachineSnapshotContentList is a list of VirtualMachineSnapshot resources"
@@ -4088,7 +4087,7 @@
         "type": "object",
         "properties": {
           "source": {
-            "$ref": "#/components/schemas/v1alpha1.SourceSpec"
+            "$ref": "#/definitions/v1alpha1.SourceSpec"
           },
           "virtualMachineSnapshotName": {
             "type": "string"
@@ -4096,7 +4095,7 @@
           "volumeBackups": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/v1alpha1.VolumeBackup"
+              "$ref": "#/definitions/v1alpha1.VolumeBackup"
             }
           }
         },
@@ -4106,10 +4105,10 @@
         "type": "object",
         "properties": {
           "creationTime": {
-            "$ref": "#/components/schemas/k8s.io.apimachinery.pkg.apis.meta.v1.Time"
+            "$ref": "#/definitions/k8s.io.apimachinery.pkg.apis.meta.v1.Time"
           },
           "error": {
-            "$ref": "#/components/schemas/v1alpha1.Error"
+            "$ref": "#/definitions/v1alpha1.Error"
           },
           "readyToUse": {
             "type": "boolean"
@@ -4117,7 +4116,7 @@
           "volumeSnapshotStatus": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/v1alpha1.VolumeSnapshotStatus"
+              "$ref": "#/definitions/v1alpha1.VolumeSnapshotStatus"
             }
           }
         },
@@ -4137,7 +4136,7 @@
           "items": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/v1alpha1.VirtualMachineSnapshot"
+              "$ref": "#/definitions/v1alpha1.VirtualMachineSnapshot"
             }
           },
           "kind": {
@@ -4145,7 +4144,7 @@
             "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds"
           },
           "metadata": {
-            "$ref": "#/components/schemas/k8s.io.apimachinery.pkg.apis.meta.v1.ListMeta"
+            "$ref": "#/definitions/k8s.io.apimachinery.pkg.apis.meta.v1.ListMeta"
           }
         },
         "description": "VirtualMachineSnapshotList is a list of VirtualMachineSnapshot resources"
@@ -4160,7 +4159,7 @@
             "type": "string"
           },
           "source": {
-            "$ref": "#/components/schemas/k8s.io.api.core.v1.TypedLocalObjectReference"
+            "$ref": "#/definitions/k8s.io.api.core.v1.TypedLocalObjectReference"
           }
         },
         "description": "VirtualMachineSnapshotSpec is the spec for a VirtualMachineSnapshot resource"
@@ -4171,14 +4170,14 @@
           "conditions": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/v1alpha1.Condition"
+              "$ref": "#/definitions/v1alpha1.Condition"
             }
           },
           "creationTime": {
-            "$ref": "#/components/schemas/k8s.io.apimachinery.pkg.apis.meta.v1.Time"
+            "$ref": "#/definitions/k8s.io.apimachinery.pkg.apis.meta.v1.Time"
           },
           "error": {
-            "$ref": "#/components/schemas/v1alpha1.Error"
+            "$ref": "#/definitions/v1alpha1.Error"
           },
           "readyToUse": {
             "type": "boolean"
@@ -4200,7 +4199,7 @@
         "type": "object",
         "properties": {
           "persistentVolumeClaim": {
-            "$ref": "#/components/schemas/k8s.io.api.core.v1.PersistentVolumeClaim"
+            "$ref": "#/definitions/k8s.io.api.core.v1.PersistentVolumeClaim"
           },
           "volumeName": {
             "type": "string"
@@ -4241,10 +4240,10 @@
         "type": "object",
         "properties": {
           "creationTime": {
-            "$ref": "#/components/schemas/k8s.io.apimachinery.pkg.apis.meta.v1.Time"
+            "$ref": "#/definitions/k8s.io.apimachinery.pkg.apis.meta.v1.Time"
           },
           "error": {
-            "$ref": "#/components/schemas/v1alpha1.Error"
+            "$ref": "#/definitions/v1alpha1.Error"
           },
           "readyToUse": {
             "type": "boolean"
@@ -4264,5 +4263,4 @@
         "in": "header"
       }
     }
-  }
 }
